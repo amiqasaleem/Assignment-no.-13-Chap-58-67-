@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 02</title>
+</head>
+<body>
+    <div>
+        <h1> DOM </h1>
+        <div id="form-content" class="content">
+        <label for="first-name">First Name</label>
+        <input type="text" id="first-name"/>
+        <label for="last-name">Last Name</label>
+        <input type="text" id="last-name"/>
+        <label for="email">Email</label>
+        <input type="text" id="email"/>
+        </div>
+        <div id="main-content" class="content">
+        <p class="render"> First Name : Alex</p>
+        <p class="render" id="lastName">Last Name: Bank</p>
+        <p class="render"> Email : alexbank@example.com</p>
+        <p class="render"> Country : Pakistan </p>
+        <p class="render"> contact : +92 300 1234567</p>
+        </div>
+    </div>
+    <script>
+        // 1. What is node type of element having id “form-content”.
+        const formContent = document.getElementById('form-content');
+        document.body.innerHTML += `<p>Node Type of 'form-content': ${formContent.nodeType}</p>`;
+
+        //2. Show node type of element having id “lastName” and its child node.
+        const lastNameElement = document.getElementById('lastName');
+        document.body.innerHTML += `<p>Node Type of 'lastName': ${lastNameElement.nodeType}</p>`;
+        document.body.innerHTML += `<p>Child Nodes of 'lastName': ${lastNameElement.childNodes.length}</p>`;
+
+        //3. Update child node of element having id “lastName”.
+        lastNameElement.innerText = "Last Name: Kevin";
+        document.write(`<p>${lastNameElement.innerHTML}</p>`)
+
+        //4. Get First and last child of id “main-content”.
+
+        const mainContent = document.getElementById('main-content');
+        // const firstChild = mainContent.firstChild; // May be text node (whitespace)
+        // const lastChild = mainContent.lastChild; // May be text node (whitespace)
+        const firstElementChild = mainContent.firstElementChild;
+        const lastElementChild = mainContent.lastElementChild;
+
+        document.write(`<p>First Child of 'main-content': ${firstElementChild.innerHTML}</p>`);
+        document.write(`<p>Last Child of 'main-content': ${lastElementChild.innerHTML}</p>`);
+        
+        //5. Get next and previous siblings of id “lastName”.
+
+        const nextSibling = lastNameElement.nextElementSibling;
+        const previousSibling = lastNameElement.previousElementSibling;
+        
+        document.write(`<p>Next Sibling of 'lastName': ${nextSibling.innerHTML}</p>`);
+        document.write(`<p>Previous Sibling of 'lastName': ${previousSibling.innerHTML}</p>`);
+
+        //6. Get parent node and node type of element having id “email”.
+        const emailElement = document.getElementById('email');
+        const emailParent = emailElement.parentNode;
+        document.body.innerHTML += `<p>Parent Node of 'email': ${emailParent.id} (Node Type: ${emailParent.nodeType})</p>`;
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 01</title>
+</head>
+<body>
+    <div>
+        <h1> DOM </h1>
+        <div id="form-content" class="content">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name"/>
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name"/>
+            <label for="email">Email</label>
+            <input type="text" id="email" size="25"/>
+        </div>
+
+        <div id="main-content" class="content">
+            <p class="render" id="para"> First Name : Alex</p>
+            <p class="render" id="lastName">Last Name: Bank</p>
+            <p class="render"> Email : alexbank@example.com</p>
+            <p class="render"> Country : Pakistan </p>
+            <p class="render"> contact : +92 300 1234567</p>
+        </div>
+    </div>
+    <script>
+        // 1. Get element of id “main-content” and assign them in a variable.
+        var mainContent = document.getElementById("main-content");
+
+        // 2. Display all child elements of “main-content” element.
+        const childElements = mainContent.children;
+        console.log("Child Elements of main-content:");
+        for(var i = 0; i < childElements.length; i++){
+            console.log(childElements[i]);    
+        }
+        
+        //3. Get all elements of class "render" and show their innerHTML in browser.
+        const renderElements = document.getElementsByClassName('render');
+        document.write("InnerHTML of elements with class 'render':");
+        for(var i = 0 ; i < renderElements.length; i++){
+            document.write(`<p>${renderElements[i].innerHTML}</p>`)
+        }
+
+        //4. Fill input value whose element id is "first-name" using JavaScript.
+        document.getElementById('first-name').value = 'Zulfiqar';
+        
+        //5. Repeat part iv for id "last-name" and "email".
+        document.getElementById("last-name").value = 'Ahmed';
+        document.getElementById("email").value = "zulfiqarahmed@example.com"
+    </script>
+</body>
+</html>
